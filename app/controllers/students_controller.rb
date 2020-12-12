@@ -6,7 +6,20 @@ class StudentsController < ApplicationController
   end
 
   def show
+    @student = Student.find(params[:id])
   end
+
+  def activate
+    @student = Student.find(params[:id])
+    @student.active = !@student.active
+    @student.save
+    # redirect can be written in 2 ways: 
+    # redirect_to student_path
+    # or like below
+    redirect_to :controller => 'students', :action => 'show'
+  end 
+
+ 
 
   private
 
