@@ -9,7 +9,8 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
 
-  def activate
+  #Man they wanted you to intuitively know that "activate" is just an update method. 
+  def update
     @student = Student.find(params[:id])
     @student.active = !@student.active
     @student.save
